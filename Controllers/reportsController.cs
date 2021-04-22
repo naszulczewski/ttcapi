@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using API.Reports;
 using Microsoft.AspNetCore.Cors;
 using API.TotalCartFunctions;
+using API.Cartfunctions;
 
 namespace API.Controllers
 {
@@ -33,10 +34,10 @@ namespace API.Controllers
         // POST: api/reports
         [EnableCors("AnotherPolicy")]
         [HttpPost]
-        public void Post()
+        public void Post(cart value)
         {
             pushData insertObject = new pushData();
-            insertObject.pushCartData();
+            insertObject.pushCartData(value);
         }
 
         // PUT: api/reports/5
