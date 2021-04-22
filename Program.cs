@@ -22,8 +22,8 @@ namespace API
             // seedData seed = new seedData();
             // seed.SeedData();
 
-            seedOrderTable seedOrder = new seedOrderTable();
-            seedOrder.seedOrderTableData();
+            // seedOrderTable seedOrder = new seedOrderTable();
+            // seedOrder.seedOrderTableData();
 
             CreateHostBuilder(args).Build().Run();
         }
