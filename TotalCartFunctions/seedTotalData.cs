@@ -25,7 +25,7 @@ namespace API.TotalCartFunctions
             using var cmd1 = new MySqlCommand(stm1, con);
             cmd1.ExecuteNonQuery();
 
-            string stm2 = @"CREATE TABLE carttotals(orderID INTEGER FOREIGN KEY(references OrderIDTable), itemName TEXT, quantitiy INTEGER, price DOUBLE)";
+            string stm2 = @"CREATE TABLE carttotals(carttotalsID INTEGER PRIMARY KEY, OrderID INTEGER, itemName TEXT, price DOUBLE, quantitiy INTEGER, FOREIGN KEY (OrderID) REFERENCES OrderIDTable(OrderID))";
             // totalprice DOUBLE, qckparm INTEGER, qccc INTEGER, qvegb INTEGER, qcss INTEGER, qturk INTEGER, qhouse INTEGER, pckparm DOUBLE, pccc DOUBLE, pvegb DOUBLE, pcss DOUBLE, pturk DOUBLE, phouse DOUBLE)";
 
             using var cmd2 = new MySqlCommand(stm2, con);
