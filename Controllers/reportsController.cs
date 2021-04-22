@@ -8,6 +8,7 @@ using API.Reports;
 using Microsoft.AspNetCore.Cors;
 using API.TotalCartFunctions;
 using API.Cartfunctions;
+using ttcapi.orderIDCreation;
 
 namespace API.Controllers
 {
@@ -36,6 +37,9 @@ namespace API.Controllers
         [HttpPost]
         public void Post(cart value)
         {
+            createOrderID orderID = new createOrderID();
+            orderID.seedDataID();
+
             pushData insertObject = new pushData();
             insertObject.pushCartData(value);
         }
