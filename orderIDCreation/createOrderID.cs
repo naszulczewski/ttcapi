@@ -1,6 +1,7 @@
 using API;
 using MySql.Data.MySqlClient;
 using MySql.Data;
+using System;
 
 namespace ttcapi.orderIDCreation
 {
@@ -17,7 +18,7 @@ namespace ttcapi.orderIDCreation
             // string stm = @"INSERT INTO OrderIDTable()";
             string stm = @"INSERT INTO OrderIDTable(filler) VALUES(@filler)";
             using var cmd = new MySqlCommand(stm, con);
-
+            Console.WriteLine("made it to INSERT");
             string fillerv = "filler";
             cmd.Parameters.AddWithValue("@filler", fillerv);
             cmd.Prepare();
