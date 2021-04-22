@@ -18,8 +18,9 @@ namespace ttcapi.orderIDCreation
             string stm = @"INSERT INTO OrderIDTable(filler) VALUES(@filler)";
             using var cmd = new MySqlCommand(stm, con);
 
-            cmd.Parameters.AddWithValue("@filler", "filler");
-            
+            string fillerv = "filler";
+            cmd.Parameters.AddWithValue("@filler", fillerv);
+            cmd.Prepare();
             cmd.ExecuteNonQuery();
         }
     }
