@@ -33,7 +33,7 @@ namespace TTCatering.Cartfunctions.addCart
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             con.Close();
-            addChickenParm.Add(value);
+            // addChickenParm.Add(value);
         }
     }
 }

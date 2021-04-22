@@ -35,7 +35,7 @@ namespace TTCatering.Cartfunctions.updateCart
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             cart addparm = new cart(){itemName =value, quantity =0, price=price};
-            addChickenParm.Add(addparm);
+            // addChickenParm.Add(addparm);
         }
     }
 }

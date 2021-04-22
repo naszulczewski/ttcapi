@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using TTCatering.Cartfunctions;
 using API.TotalCartFunctions;
 using API.CateringEventFunctions.createEvent;
+using ttcapi.orderIDCreation;
+using API;
 
 namespace API
 {
@@ -20,6 +22,8 @@ namespace API
             // seedData seed = new seedData();
             // seed.SeedData();
 
+            seedOrderTable seedOrder = new seedOrderTable();
+            seedOrder.seedOrderTableData();
 
             CreateHostBuilder(args).Build().Run();
         }
