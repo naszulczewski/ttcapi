@@ -21,12 +21,14 @@ namespace API
         {
             seedData seed = new seedData();
             seed.SeedData();
+            
+            seedTotalData seedie = new seedTotalData();
+            seedie.SeedData();
 
             seedOrderTable seedOrder = new seedOrderTable();
             seedOrder.seedOrderTableData();
 
-            // seedTotalData seedie = new seedTotalData();
-            // seedie.SeedData();
+            
 
             CreateHostBuilder(args).Build().Run();
         }
