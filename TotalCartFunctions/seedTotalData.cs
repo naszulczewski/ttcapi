@@ -29,7 +29,7 @@ namespace API.TotalCartFunctions
             // totalprice DOUBLE, qckparm INTEGER, qccc INTEGER, qvegb INTEGER, qcss INTEGER, qturk INTEGER, qhouse INTEGER, pckparm DOUBLE, pccc DOUBLE, pvegb DOUBLE, pcss DOUBLE, pturk DOUBLE, phouse DOUBLE)";
 
             using var cmd2 = new MySqlCommand(stm2, con);
-            cmd1.ExecuteNonQuery();
+            cmd2.ExecuteNonQuery();
         }
     }
 }
