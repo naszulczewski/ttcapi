@@ -28,7 +28,7 @@ namespace TTCatering.Cartfunctions.removeCart
             cmd.Prepare();
             cmd.ExecuteNonQuery();
 
-            deleteChickenParm.Delete(value);
+            // deleteChickenParm.Delete(value);
         }
     }
 }

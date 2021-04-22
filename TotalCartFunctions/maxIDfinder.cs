@@ -2,6 +2,7 @@ using System;
 using System.Data.SQLite;
 using API.TotalCartFunctions;
 using API.Cartfunctions;
+using MySql.Data.MySqlClient;
 
 namespace API.TotalCartFunctions
 {
@@ -9,15 +10,21 @@ namespace API.TotalCartFunctions
     {
         public static int find()
         {
-            string cs = @"URI=file:../carttotals.db";
-            using var con = new SQLiteConnection(cs);
-            con.Open();
+            // string cs = @"URI=file:../carttotals.db";
+            // using var con = new SQLiteConnection(cs);
+            // con.Open();
             
+            ConnectionString myConnection = new ConnectionString();
+            string cs = myConnection.cs;
 
-            string stm = @$"SELECT * FROM carttotals WHERE orderid = (SELECT MAX(orderid) FROM carttotals)";
-            using var cmd = new SQLiteCommand(stm, con);
+            using var con = new MySqlConnection(cs);
+            con.Open();
 
-            using SQLiteDataReader rdr = cmd.ExecuteReader();
+            string stm = @$"SELECT * FROM OrderIDTable WHERE OrderID = (SELECT MAX(OrderID) FROM OrderIDTable)";
+
+            using var cmd = new MySqlCommand(stm, con);
+
+            using MySqlDataReader rdr = cmd.ExecuteReader();
             int orderID = 0;
             while(rdr.Read())
             {

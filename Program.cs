@@ -19,11 +19,14 @@ namespace API
     {
         public static void Main(string[] args)
         {
-            // seedData seed = new seedData();
-            // seed.SeedData();
+            seedData seed = new seedData();
+            seed.SeedData();
 
             // seedOrderTable seedOrder = new seedOrderTable();
             // seedOrder.seedOrderTableData();
+
+            // seedTotalData seedie = new seedTotalData();
+            // seedie.SeedData();
 
             CreateHostBuilder(args).Build().Run();
         }
