@@ -20,12 +20,15 @@ namespace ttcapi.orderIDCreation
             
             cmd.ExecuteNonQuery();
 
-            string stm3 = @"INSERT INTO OrderIDTable (OrderID) VALUES 1";
+            string stm2 = @"CREATE TABLE OrderIDTable(OrderID INTEGER PRIMARY KEY AUTO_INCREMENT, filler TEXT)";
+
+            // string stm3 = @"INSERT INTO OrderIDTable (OrderID) VALUES 1";
             // instead put parameters where the one is unless we need to hardcode a one for seeding
             // Insert data so it doesn't come back null
 
+            using var cmd2 = new MySqlCommand(stm2, con);
 
-            using var cmd2 = new MySqlCommand(stm3, con);
+            cmd2.ExecuteNonQuery();
         }
     }
 }
