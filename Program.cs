@@ -22,8 +22,8 @@ namespace API
             seedData seed = new seedData();
             seed.SeedData();
 
-            seedTotalData seedie = new seedTotalData();
-            seedie.SeedData();
+            // seedTotalData seedie = new seedTotalData();
+            // seedie.SeedData();
 
             // seedOrderTable seedOrder = new seedOrderTable();
             // seedOrder.seedOrderTableData();
