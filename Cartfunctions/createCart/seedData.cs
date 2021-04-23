@@ -32,7 +32,7 @@ namespace TTCatering.Cartfunctions
 
             // cmd.CommandText = @"CREATE TABLE cart(cartid INTEGER PRIMARY KEY, itemName TEXT, price DOUBLE, quantity INTEGER)";
 
-            string stm2 = @"CREATE TABLE cart(cartid INTEGER PRIMARY KEY, itemName TEXT, price DOUBLE, quantity INTEGER)";
+            string stm2 = @"CREATE TABLE cart(cartid INTEGER PRIMARY KEY AUTO_INCREMENT, itemName TEXT, price DOUBLE, quantity INTEGER)";
 
             using var cmd1 = new MySqlCommand(stm2, con);
 

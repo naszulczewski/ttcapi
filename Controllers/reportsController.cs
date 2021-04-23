@@ -35,13 +35,13 @@ namespace API.Controllers
         // POST: api/reports
         [EnableCors("AnotherPolicy")]
         [HttpPost]
-        public void Post(cart value)
+        public void Post()
         {
             createOrderID orderID = new createOrderID();
             orderID.seedDataID();
 
-            pushData insertObject = new pushData();
-            insertObject.pushCartData(value);
+            // pushData insertObject = new pushData();
+            // insertObject.pushCartData(value);
         }
 
         // PUT: api/reports/5

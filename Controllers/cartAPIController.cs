@@ -50,8 +50,10 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] cart value)
         {
+            Console.WriteLine(value.cartid);
             iAddCart putObject = new addCart();
             putObject.addCartItem(id, value);
+            
         }
 
         // DELETE: api/cartAPI/5
