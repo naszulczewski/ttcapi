@@ -29,9 +29,9 @@ namespace ttcapi.TotalCartFunctions
                 using var cmd = new MySqlCommand(stm, con);
 
                 cmd.Parameters.AddWithValue("@OrderID", OrderID);
-                cmd.Parameters.AddWithValue("@itemName", allItems.ElementAt(1));
-                cmd.Parameters.AddWithValue("@quantity", allItems.ElementAt(3));
-                cmd.Parameters.AddWithValue("@price", allItems.ElementAt(2));
+                cmd.Parameters.AddWithValue("@itemName", mI.itemName);
+                cmd.Parameters.AddWithValue("@quantity", mI.quantity);
+                cmd.Parameters.AddWithValue("@price", mI.price);
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
             }
