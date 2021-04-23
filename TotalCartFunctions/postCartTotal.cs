@@ -13,6 +13,7 @@ namespace ttcapi.TotalCartFunctions
     {
         public void postCartTotalData(int OrderID)
         {
+            Console.WriteLine("made it to the cs");
             readData getAllItems = new readData();
             List<cart> allItems = getAllItems.GetAllItems();
 
