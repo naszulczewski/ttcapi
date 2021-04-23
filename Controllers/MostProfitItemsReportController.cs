@@ -26,26 +26,30 @@ namespace API.Controllers
             return popItem.MostProfitItemReport();
         }
 
-        // GET: api/MostProfitItemsReport/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        // // GET: api/MostProfitItemsReport/5
+        // [EnableCors("AnotherPolicy")]
+        // [HttpGet("{id}", Name = "Get")]
+        // public string Get(int id)
+        // {
+        //     return "value";
+        // }
 
         // POST: api/MostProfitItemsReport
+        [EnableCors("AnotherPolicy")]
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
         // PUT: api/MostProfitItemsReport/5
+        [EnableCors("AnotherPolicy")]
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE: api/MostProfitItemsReport/5
+        [EnableCors("AnotherPolicy")]
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

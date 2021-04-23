@@ -45,12 +45,14 @@ namespace API.Controllers
         }
 
         // PUT: api/reports/5
+        [EnableCors("AnotherPolicy")]
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE: api/reports/5
+        [EnableCors("AnotherPolicy")]
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
