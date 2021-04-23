@@ -1,14 +1,13 @@
-using MySql.Data.MySqlClient;
-using MySql.Data;
-using API;
 using System.Collections.Generic;
+using API;
 using API.Reports;
+using MySql.Data.MySqlClient;
 
 namespace ttcapi.Reports
 {
-    public class MostPopularItem
+    public class LeastPopularItem
     {
-        public List<carttotals> MostPopularItemReport()
+        public List<carttotals> LeastPopularItemReport()
         {
             List<carttotals> cartTotals = new List<carttotals>();
 
@@ -18,7 +17,7 @@ namespace ttcapi.Reports
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = "SELECT TOP 1 itemName, quantity FROM carttotals GROUP BY itemName, quantity ORDER BY quantity desc;";
+            string stm = "SELECT TOP 1 itemName, quantity FROM carttotals GROUP BY itemName, quantity ORDER BY quantity asc;";
             using var cmd = new MySqlCommand(stm, con);
 
             cmd.ExecuteNonQuery();
