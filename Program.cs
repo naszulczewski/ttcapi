@@ -28,8 +28,8 @@ namespace API
             // seedOrderTable seedOrder = new seedOrderTable();
             // seedOrder.seedOrderTableData();
 
-            seedEventData seedEvent = new seedEventData();
-            seedEvent.SeedAllEventData();
+            // seedEventData seedEvent = new seedEventData();
+            // seedEvent.SeedAllEventData();
 
             CreateHostBuilder(args).Build().Run();
         }

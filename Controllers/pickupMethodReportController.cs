@@ -11,6 +11,7 @@ using API.Cartfunctions;
 using ttcapi.orderIDCreation;
 using ttcapi.Reports;
 using API;
+using API.CateringEventFunctions;
 
 namespace API.Controllers
 {
@@ -21,7 +22,7 @@ namespace API.Controllers
         // GET: api/pickupMethodReport
         [EnableCors("AnotherPolicy")]
         [HttpGet]
-        public List<orderevent> Get()
+        public List<CateringEvent> Get()
         {
             PickupMethod pickup = new  PickupMethod();
             return pickup.PickupMethodReport();

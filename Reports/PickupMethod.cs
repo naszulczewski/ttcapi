@@ -2,15 +2,16 @@
 
 using System.Collections.Generic;
 using API;
+using API.CateringEventFunctions;
 using MySql.Data.MySqlClient;
 
 namespace ttcapi.Reports
 {
     public class PickupMethod
     {
-        public List<orderevent> PickupMethodReport()
+        public List<CateringEvent> PickupMethodReport()
         {
-            List<orderevent> cartTotals = new List<orderevents>();
+            List<CateringEvent> cartTotals = new List<CateringEvent>(); //orderevent is name of table
 
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
