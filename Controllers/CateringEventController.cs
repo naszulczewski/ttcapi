@@ -41,7 +41,7 @@ namespace API.Controllers
         {
             Console.WriteLine(value);
             iPostEvent insertObject = new saveEventData();
-            insertObject.UpdateEvent(value.orderID, value.orderPlaced, value.orderDate, value.fulfilledStatus, value.orderEventMethod, value.orderDescription);
+            insertObject.UpdateEvent(value.OrderID, value.orderPlaced, value.orderDate, value.fulfilledStatus, value.orderEventMethod, value.orderDescription);
         }
 
         // PUT: api/CateringEvent/5
@@ -50,7 +50,7 @@ namespace API.Controllers
         public void Put(int id, [FromBody] CateringEvent value)
         {
             iAddEvent putObject = new addEvent();
-            putObject.addOrderEvent(value.orderID, value.orderPlaced, value.orderDate, value.fulfilledStatus, value.orderEventMethod, value.orderDescription);
+            putObject.addOrderEvent(value.OrderID, value.orderPlaced, value.orderDate, value.fulfilledStatus, value.orderEventMethod, value.orderDescription);
         }
 
         // DELETE: api/CateringEvent/5

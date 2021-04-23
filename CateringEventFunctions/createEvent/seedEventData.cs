@@ -8,7 +8,7 @@ namespace API.CateringEventFunctions.createEvent
 {
     public class seedEventData : iSeedEvent
     {
-        public void SeedEventData()
+        public void SeedAllEventData()
         {
             // string cs = @"URI=file:../OrderEvent.db";
             // using var con = new SQLiteConnection(cs);
@@ -27,7 +27,7 @@ namespace API.CateringEventFunctions.createEvent
             cmd.ExecuteNonQuery();
 
             // cmd.CommandText = @"CREATE TABLE OrderEvent(orderID INTEGER PRIMARY KEY, orderPlaced DATETIME, orderDate DATETIME, fulfilledStatus BOOL, orderEventMethod INTEGER, orderDescription TEXT)";
-            string stm2 = @"CREATE TABLE OrderEvent(orderID INTEGER PRIMARY KEY, orderPlaced DATETIME, orderDate DATETIME, fulfilledStatus BOOL, orderEventMethod INTEGER, orderDescription TEXT)";
+            string stm2 = @"CREATE TABLE OrderEvent(OrderID INTEGER PRIMARY KEY, orderPlaced DATETIME, orderDate DATETIME, fulfilledStatus BOOL, orderEventMethod INTEGER, orderDescription TEXT)";
             using var cmd1 = new MySqlCommand(stm2, con);
             cmd1.ExecuteNonQuery();
         }

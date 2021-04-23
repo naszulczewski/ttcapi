@@ -8,7 +8,7 @@ namespace API.CateringEventFunctions.addEvent
 {
     public class addEvent : iAddEvent
     {
-        public void addOrderEvent(int orderID, DateTime orderPlaced, DateTime orderDate, bool fulfilledStatus, int orderEventMethod, string orderDescription)
+        public void addOrderEvent(int OrderID, DateTime orderPlaced, DateTime orderDate, bool fulfilledStatus, int orderEventMethod, string orderDescription)
         {
             // string cs = @"URI=file:../OrderEvents.db";
             // using var con = new SQLiteConnection(cs);
@@ -20,9 +20,9 @@ namespace API.CateringEventFunctions.addEvent
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = @"UPDATE cart set quantity = '" + "' WHERE orderID = @id";
+            string stm = @"UPDATE cart set quantity = '" + "' WHERE OrderID = @id";
             using var cmd = new MySqlCommand(stm, con);
-            cmd.Parameters.AddWithValue("@id", orderID);
+            cmd.Parameters.AddWithValue("@id", OrderID);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             con.Close();

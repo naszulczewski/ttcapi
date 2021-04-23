@@ -9,7 +9,7 @@ namespace API.CateringEventFunctions.updateEvents
 {
     public class saveEventData : iPostEvent
     {
-        public void UpdateEvent(int orderID, DateTime orderPlaced, DateTime orderDate, bool fulfilledStatus, int orderEventMethod, string orderDescription)
+        public void UpdateEvent(int OrderID, DateTime orderPlaced, DateTime orderDate, bool fulfilledStatus, int orderEventMethod, string orderDescription)
         {
             // string cs = @"URI=file:../OrderEvent.db"; // make this a static class!!
             // using var con = new SQLiteConnection(cs);
@@ -22,11 +22,11 @@ namespace API.CateringEventFunctions.updateEvents
             con.Open();
 
             // cmd.CommandText = @"INSERT INTO OrderEvent(orderID, orderPlaced, orderDate, fulfilledStatus, orderEventMethod, orderDescription) VALUES(@orderID, @orderPlaced, @fulfilledStatus, @orderEventMethod, @orderDescription)";
-            string stm = @"INSERT INTO OrderEvent(orderID, orderPlaced, orderDate, fulfilledStatus, orderEventMethod, orderDescription) VALUES(@orderID, @orderPlaced, @fulfilledStatus, @orderEventMethod, @orderDescription)";
+            string stm = @"INSERT INTO OrderEvent(OrderID, orderPlaced, orderDate, fulfilledStatus, orderEventMethod, orderDescription) VALUES(@orderID, @orderPlaced, @fulfilledStatus, @orderEventMethod, @orderDescription)";
 
             using var cmd = new MySqlCommand(stm, con);
 
-            cmd.Parameters.AddWithValue("@orderID", orderID);
+            cmd.Parameters.AddWithValue("@OrderID", OrderID);
             cmd.Parameters.AddWithValue("@orderPlaced", DateTime.Now);
             cmd.Parameters.AddWithValue("orderDate", orderDate);
             cmd.Parameters.AddWithValue("@fulfilledStatus", fulfilledStatus);
