@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Cartfunctions;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -40,10 +41,10 @@ namespace API.Controllers
 
         // PUT: api/cartTotals/5
         [EnableCors("AnotherPolicy")]
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public void Put([FromBody] List<cart> totalCart)
         {
-            
+            Console.WriteLine(totalCart);
         }
 
         // DELETE: api/cartTotals/5
