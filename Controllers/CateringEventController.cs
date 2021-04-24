@@ -47,10 +47,13 @@ namespace API.Controllers
         // PUT: api/CateringEvent/5
         [EnableCors("AnotherPolicy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] CateringEvent value)
+        public void Put([FromBody] List<CateringEvent> totalEvents)
         {
-            iAddEvent putObject = new addEvent();
-            putObject.addOrderEvent(value.OrderID, value.orderPlaced, value.orderDate, value.fulfilledStatus, value.orderEventMethod, value.orderDescription);
+            Console.WriteLine(totalEvents);
+            // putCartTotals putCart = new putCartTotals();
+            // putCart.putCartTotalsData(totalEvents);
+            // iAddEvent putObject = new addEvent();
+            // putObject.addOrderEvent(value.OrderID, value.orderPlaced, value.orderDate, value.fulfilledStatus, value.orderEventMethod, value.orderDescription);
         }
 
         // DELETE: api/CateringEvent/5

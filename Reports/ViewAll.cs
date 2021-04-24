@@ -33,7 +33,7 @@ namespace API.Reports
 
             while(rdr.Read())
             {
-                cart temp = new cart(){OrderID = rdr.GetInt32(0), itemName = rdr.GetString(1), price = rdr.GetFloat(2), quantity = rdr.GetInt32(3)};
+                cart temp = new cart(){OrderID = rdr.GetInt32(1), itemName = rdr.GetString(2), price = rdr.GetFloat(3), quantity = rdr.GetInt32(4)};
                 cartTotals.Add(temp);
             }
 
