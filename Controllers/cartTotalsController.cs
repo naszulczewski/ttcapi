@@ -35,8 +35,8 @@ namespace API.Controllers
         [HttpPost]
         public void Post([FromBody] int OrderID)
         {
-            postCartTotal postCart = new postCartTotal();
-            postCart.postCartTotalData(OrderID);
+            // postCartTotal postCart = new postCartTotal();
+            // postCart.postCartTotalData(OrderID);
         }
 
         // PUT: api/cartTotals/5

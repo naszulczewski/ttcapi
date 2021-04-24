@@ -31,8 +31,8 @@ namespace ttcapi.TotalCartFunctions
 
                 cmd.Parameters.AddWithValue("@OrderID", OrderID);
                 cmd.Parameters.AddWithValue("@itemName", item.itemName);
-                cmd.Parameters.AddWithValue("@quantity", item.quantity);
                 cmd.Parameters.AddWithValue("@price", item.price);
+                cmd.Parameters.AddWithValue("@quantity", item.quantity);
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
             }
