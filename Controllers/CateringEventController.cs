@@ -11,6 +11,7 @@ using API.CateringEventFunctions.updateEvents;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ttcapi.CateringEventFunctions;
 
 namespace API.Controllers
 {
@@ -46,12 +47,12 @@ namespace API.Controllers
 
         // PUT: api/CateringEvent/5
         [EnableCors("AnotherPolicy")]
-        [HttpPut("{id}")]
+        [HttpPut]
         public void Put([FromBody] List<CateringEvent> totalEvents)
         {
             Console.WriteLine(totalEvents);
-            // putCartTotals putCart = new putCartTotals();
-            // putCart.putCartTotalsData(totalEvents);
+            putEventTotals putEvent = new putEventTotals();
+            putEvent.putEventTotalsData(totalEvents);
             // iAddEvent putObject = new addEvent();
             // putObject.addOrderEvent(value.OrderID, value.orderPlaced, value.orderDate, value.fulfilledStatus, value.orderEventMethod, value.orderDescription);
         }
