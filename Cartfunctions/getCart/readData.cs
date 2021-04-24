@@ -28,7 +28,7 @@ namespace API.Cartfunctions.getCart
 
             while(rdr.Read())
             {
-                cart temp = new cart(){cartid = rdr.GetInt32(0), itemName = rdr.GetString(1), price = rdr.GetDouble(2), quantity = rdr.GetInt32(3)};
+                cart temp = new cart(){OrderID = rdr.GetInt32(0), itemName = rdr.GetString(1), price = rdr.GetDouble(2), quantity = rdr.GetInt32(3)};
                 allItems.Add(temp);
             }
 

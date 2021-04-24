@@ -5,15 +5,16 @@ using API.Cartfunctions;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using MySql.Data;
+using API;
 
 namespace API.Reports
 {
     public class ViewAll
     {
-        public List<carttotals> ViewAllReports()
+        public List<cart> ViewAllReports()
         {
             Console.WriteLine("made it to viewallreports");
-            List<carttotals> cartTotals = new List<carttotals>();
+            List<cart> cartTotals = new List<cart>();
 
             // string cs = @"URI=file:../carttotals.db";
             // using var con = new SQLiteConnection(cs);
@@ -32,7 +33,7 @@ namespace API.Reports
 
             while(rdr.Read())
             {
-                carttotals temp = new carttotals(){OrderID = rdr.GetInt32(0), itemName = rdr.GetString(1), price = rdr.GetDouble(2), quantity = rdr.GetInt32(3)};
+                cart temp = new cart(){OrderID = rdr.GetInt32(0), itemName = rdr.GetString(1), price = rdr.GetFloat(2), quantity = rdr.GetInt32(3)};
                 cartTotals.Add(temp);
             }
 

@@ -19,7 +19,7 @@ namespace API.Controllers
         // GET: api/reports
         [EnableCors("AnotherPolicy")]
         [HttpGet]
-        public List<carttotals> Get()
+        public List<cart> Get()
         {
             ViewAll test = new ViewAll();
             return test.ViewAllReports();
