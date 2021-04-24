@@ -45,6 +45,8 @@ namespace API.Controllers
         public void Put([FromBody] List<cart> totalCart)
         {
             Console.WriteLine(totalCart);
+            putCartTotals putCart = new putCartTotals();
+            putCart.putCartTotalsData(totalCart);
         }
 
         // DELETE: api/cartTotals/5
