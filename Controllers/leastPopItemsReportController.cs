@@ -21,7 +21,7 @@ namespace API.Controllers
         // GET: api/leastPopItemsReport
         [EnableCors("AnotherPolicy")]
         [HttpGet]
-        public List<carttotals> Get()
+        public List<cart> Get()
         {
             MostPopularItem popItem = new MostPopularItem();
             return popItem.MostPopularItemReport();

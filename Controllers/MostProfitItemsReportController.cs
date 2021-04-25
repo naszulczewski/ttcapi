@@ -20,7 +20,7 @@ namespace API.Controllers
         // GET: api/MostProfitItemsReport
         [EnableCors("AnotherPolicy")]
         [HttpGet]
-        public List<carttotals> Get()
+        public List<cart> Get()
         {
             MostProfitItem popItem = new MostProfitItem();
             return popItem.MostProfitItemReport();
