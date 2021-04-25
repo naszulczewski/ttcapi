@@ -9,7 +9,7 @@ namespace ttcapi.Reports
     {
         public List<CateringEvent> DeliveryMethodReport()
         {
-            List<CateringEvent> cartTotals = new List<CateringEvent>(); //orderevent is name of table
+            List<CateringEvent> deliveryEvents = new List<CateringEvent>(); //orderevent is name of table
 
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
@@ -54,7 +54,7 @@ namespace ttcapi.Reports
             while(rdr.Read())
             {
                 CateringEvent temp = new CateringEvent(){orderEventMethod = rdr.GetInt32(0)};
-                cartTotals.Add(temp);
+                deliveryEvents.Add(temp);
             }
 
             // while(rdr1.Read())
@@ -63,7 +63,7 @@ namespace ttcapi.Reports
             //     cartTotals.Add(temp);
             // }
 
-            return cartTotals;
+            return deliveryEvents;
         }
     }
 }
