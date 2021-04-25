@@ -1,16 +1,13 @@
-
-
 using System.Collections.Generic;
 using API;
 using API.CateringEventFunctions;
-using API.Reports;
 using MySql.Data.MySqlClient;
 
 namespace ttcapi.Reports
 {
-    public class PickupMethod
+    public class DeliveryMethod
     {
-        public List<CateringEvent> PickupMethodReport()
+        public List<CateringEvent> DeliveryMethodReport()
         {
             List<CateringEvent> cartTotals = new List<CateringEvent>(); //orderevent is name of table
 
@@ -24,15 +21,15 @@ namespace ttcapi.Reports
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm5 = "DROP VIEW pickedup;";
-            using var cmd5 = new MySqlCommand(stm5,con);
+            string stm6 = "DROP VIEW delivered;";
+            using var cmd6 = new MySqlCommand(stm6,con);
 
-            cmd5.ExecuteNonQuery();
+            cmd6.ExecuteNonQuery();
 
-            string stm = "CREATE VIEW pickedup as SELECT count(*) as pickeduporders FROM orderevent WHERE (ordereventmethod = 1);";
-            using var cmd = new MySqlCommand(stm, con);
+            string stm1 = "CREATE VIEW delivered as SELECT count(*) as deliveredorders FROM orderevent WHERE (ordereventmethod = 0);";
+            using var cmd1 = new MySqlCommand(stm1, con);
 
-            cmd.ExecuteNonQuery();
+            cmd1.ExecuteNonQuery();
 
             string stm7 = "DROP VIEW totalorders;";
             using var cmd7 = new MySqlCommand(stm7,con);
@@ -44,13 +41,14 @@ namespace ttcapi.Reports
 
             cmd2.ExecuteNonQuery();
 
-            string stm3 = "SELECT pickeduporders/totalorders AS percentpickedup FROM pickedup, totalorders;";
-            using var cmd3 = new MySqlCommand(stm3, con);
+            
+            string stm4 = "SELECT deliveredorders/totalorders AS percentdelivered FROM delivered, totalorders;";
+            using var cmd4 = new MySqlCommand(stm4, con);
 
-            cmd3.ExecuteNonQuery();
+            cmd4.ExecuteNonQuery();
 
 
-            using MySqlDataReader rdr = cmd3.ExecuteReader();
+            using MySqlDataReader rdr = cmd4.ExecuteReader();
 
 
             while(rdr.Read())
