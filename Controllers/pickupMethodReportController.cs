@@ -19,17 +19,17 @@ namespace API.Controllers
     [ApiController]
     public class pickupMethodReportController : ControllerBase
     {
-        // // GET: api/pickupMethodReport
-        // [EnableCors("AnotherPolicy")]
-        // [HttpGet]
-        // public List<CateringEvent> Get()
-        // {
-        //     // PickupMethod pickup = new  PickupMethod();
-        //     // return pickup.PickupMethodReport();
+        // GET: api/pickupMethodReport
+        [EnableCors("AnotherPolicy")]
+        [HttpGet]
+        public List<CateringEvent> Get()
+        {
+            PickupMethod pickup = new  PickupMethod();
+            return pickup.PickupMethodReport();
              
-        // }
+        }
 
-        // // GET: api/pickupMethodReport/5
+        // GET: api/pickupMethodReport/5
         // [HttpGet("{id}", Name = "Get")]
         // public string Get(int id)
         // {

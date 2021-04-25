@@ -23,8 +23,8 @@ namespace API.Controllers
         [HttpGet]
         public List<cart> Get()
         {
-            MostPopularItem popItem = new MostPopularItem();
-            return popItem.MostPopularItemReport();
+            LeastPopularItem leastPopItem = new LeastPopularItem();
+            return leastPopItem.LeastPopularItemReport();
         }
 
         // // GET: api/leastPopItemsReport/5
