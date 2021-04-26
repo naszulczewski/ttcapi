@@ -32,7 +32,7 @@ namespace ttcapi.CateringEventFunctions
                 string stm = "INSERT INTO orderevent(OrderID, orderPlaced, orderDate, fulfilledStatus, orderEventMethod, orderDescription) VALUES(@OrderID, @orderPlaced, @orderDate, @fulfilledStatus, @orderEventMethod, @orderDescription)";
                 using var cmd = new MySqlCommand(stm, con);
 
-                // cmd.Parameters.AddWithValue("@OrderID", OrderID);
+                cmd.Parameters.AddWithValue("@OrderID", OrderID);
                 cmd.Parameters.AddWithValue("@orderPlaced", orderPlaced); //added totalevents
                 cmd.Parameters.AddWithValue("@orderDate", totalEvents.orderDate);
                 cmd.Parameters.AddWithValue("@fulfilledStatus", fulfilledStatus); //added totalevents
