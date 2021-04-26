@@ -38,7 +38,7 @@ namespace API.Controllers
         // POST: api/CateringEvent
         [EnableCors("AnotherPolicy")]
         [HttpPost]
-        public void Post([FromBody] CateringEvent totalEvents)
+        public void Post([FromBody] List<CateringEvent> totalEvents)
         {
             Console.WriteLine(totalEvents);
             // putEventTotals putEvent = new putEventTotals();
