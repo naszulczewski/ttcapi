@@ -32,7 +32,7 @@ namespace API.CateringEventFunctions.getEvents
 
             while(rdr.Read())
             {
-                CateringEvent temp = new CateringEvent(){OrderID = rdr.GetInt32(0), orderPlaced = rdr.GetDateTime(10), orderDate = rdr.GetDateTime(10), fulfilledStatus = rdr.GetBoolean(5), orderEventMethod = rdr.GetInt32(2), orderDescription = rdr.GetString(32)};
+                CateringEvent temp = new CateringEvent(){OrderID = rdr.GetInt32(0), orderPlaced = rdr.GetDateTime(1), orderDate = rdr.GetDateTime(2), fulfilledStatus = rdr.GetBoolean(3), orderEventMethod = rdr.GetInt32(4), orderDescription = rdr.GetString(5)};
                 allCateringEvents.Add(temp);
             }
 
