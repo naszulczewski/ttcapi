@@ -38,11 +38,11 @@ namespace API.Controllers
         // POST: api/CateringEvent
         [EnableCors("AnotherPolicy")]
         [HttpPost]
-        public void Post([FromBody] CateringEvent value)
+        public void Post([FromBody] List<CateringEvent> totalEvents)
         {
-            Console.WriteLine(value);
-            iPostEvent insertObject = new saveEventData();
-            insertObject.UpdateEvent(value.OrderID, value.orderPlaced, value.orderDate, value.fulfilledStatus, value.orderEventMethod, value.orderDescription);
+            Console.WriteLine(totalEvents);
+            putEventTotals putEvent = new putEventTotals();
+            putEvent.putEventTotalsData(totalEvents);
         }
 
         // PUT: api/CateringEvent/5
@@ -50,9 +50,9 @@ namespace API.Controllers
         [HttpPut]
         public void Put([FromBody] List<CateringEvent> totalEvents)
         {
-            Console.WriteLine(totalEvents);
-            putEventTotals putEvent = new putEventTotals();
-            putEvent.putEventTotalsData(totalEvents);
+            // Console.WriteLine(totalEvents);
+            // putEventTotals putEvent = new putEventTotals();
+            // putEvent.putEventTotalsData(totalEvents);
             // iAddEvent putObject = new addEvent();
             // putObject.addOrderEvent(value.OrderID, value.orderPlaced, value.orderDate, value.fulfilledStatus, value.orderEventMethod, value.orderDescription);
         }
