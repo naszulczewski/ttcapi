@@ -7,9 +7,9 @@ namespace ttcapi.Reports
 {
     public class DeliveryMethod
     {
-        public List<CateringEvent> DeliveryMethodReport()
+        public List<string> DeliveryMethodReport()
         {
-            List<CateringEvent> deliveryEvents = new List<CateringEvent>(); //orderevent is name of table
+            // List<CateringEvent> deliveryEvents = new List<CateringEvent>(); //orderevent is name of table
 
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
@@ -42,7 +42,7 @@ namespace ttcapi.Reports
             cmd2.ExecuteNonQuery();
 
             
-            string stm4 = "SELECT deliveredorders/totalorders AS percentdelivered FROM delivered, totalorders;";
+            string stm4 = "SELECT (deliveredorders/totalorders) AS percentdelivered FROM delivered, totalorders;";
             using var cmd4 = new MySqlCommand(stm4, con);
 
             cmd4.ExecuteNonQuery();
@@ -51,12 +51,20 @@ namespace ttcapi.Reports
             using MySqlDataReader rdr = cmd4.ExecuteReader();
 
 
-            while(rdr.Read())
-            {
-                CateringEvent temp = new CateringEvent(){orderEventMethod = rdr.GetInt32(0)};
-                deliveryEvents.Add(temp);
-            }
+            // while(rdr.Read())
+            // {
+            //     CateringEvent temp = new CateringEvent(){orderEventMethod = rdr.GetInt32(0)};
+            //     deliveryEvents.Add(temp);
+            // }
 
+            List<string> deliveryEvents=new List<string>();
+            while (rdr.Read())
+            {
+                deliveryEvents.Add(rdr[0].ToString());
+                //strValue=myreader["email"].ToString();
+                //strValue=myreader.GetString(0);
+            }
+            con.Close();
             // while(rdr1.Read())
             // {
             //     CateringEvent temp = new CateringEvent(){OrderID = rdr1.GetInt32(1), orderPlaced = rdr1.GetDateTime(2), orderDate = rdr1.GetDateTime(3), fulfilledStatus = rdr1.GetBoolean(4), orderEventMethod = rdr1.GetInt32(5), orderDescription = rdr1.GetString(6)};

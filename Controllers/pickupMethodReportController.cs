@@ -22,7 +22,7 @@ namespace API.Controllers
         // GET: api/pickupMethodReport
         [EnableCors("AnotherPolicy")]
         [HttpGet]
-        public List<CateringEvent> Get()
+        public List<string> Get()
         {
             PickupMethod pickup = new  PickupMethod();
             return pickup.PickupMethodReport();

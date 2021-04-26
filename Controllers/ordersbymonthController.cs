@@ -22,7 +22,7 @@ namespace API.Controllers
         // GET: api/ordersbymonth
         [EnableCors("AnotherPolicy")]
         [HttpGet]
-        public List<CateringEvent> Get()
+        public List<string> Get()
         {
             OrdersByMonth monthlyorder = new  OrdersByMonth();
             return monthlyorder.OrdersByMonthReport();

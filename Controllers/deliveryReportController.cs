@@ -22,7 +22,7 @@ namespace API.Controllers
         // GET: api/deliveryReport
         [EnableCors("AnotherPolicy")]
         [HttpGet]
-        public List<CateringEvent> Get()
+        public List<string> Get()
         {
             DeliveryMethod deliveries = new DeliveryMethod();
             return deliveries.DeliveryMethodReport();

@@ -7,9 +7,9 @@ namespace ttcapi.Reports
 {
     public class OrdersByMonth
     {
-        public List<CateringEvent> OrdersByMonthReport()
+        public List<string> OrdersByMonthReport()
         {
-            List<CateringEvent> monthly = new List<CateringEvent>();
+            // List<CateringEvent> monthly = new List<CateringEvent>();
 
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
@@ -17,66 +17,66 @@ namespace ttcapi.Reports
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = "DROP VIEW jan;";
+            // string stm = "DROP VIEW jan;";
 
-            using var cmd = new MySqlCommand(stm, con);
+            // using var cmd = new MySqlCommand(stm, con);
 
-            cmd.ExecuteNonQuery();
+            // cmd.ExecuteNonQuery();
 
-            string stm6 = "DROP VIEW feb;";
-            using var cmd6 = new MySqlCommand(stm6,con);
+            // string stm6 = "DROP VIEW feb;";
+            // using var cmd6 = new MySqlCommand(stm6,con);
 
-            cmd6.ExecuteNonQuery();
+            // cmd6.ExecuteNonQuery();
 
-            string stm1 = "DROP VIEW march;";
-            using var cmd1 = new MySqlCommand(stm1, con);
+            // string stm1 = "DROP VIEW march;";
+            // using var cmd1 = new MySqlCommand(stm1, con);
 
-            cmd1.ExecuteNonQuery();
+            // cmd1.ExecuteNonQuery();
 
-            string stm7 = "DROP VIEW apr;";
-            using var cmd7 = new MySqlCommand(stm7,con);
+            // string stm7 = "DROP VIEW apr;";
+            // using var cmd7 = new MySqlCommand(stm7,con);
 
-            cmd7.ExecuteNonQuery();
+            // cmd7.ExecuteNonQuery();
 
-            string stm2 = "DROP VIEW may;";
-            using var cmd2 = new MySqlCommand(stm2, con);
+            // string stm2 = "DROP VIEW may;";
+            // using var cmd2 = new MySqlCommand(stm2, con);
 
-            cmd2.ExecuteNonQuery();
+            // cmd2.ExecuteNonQuery();
 
-            string stm3 = "DROP VIEW june;";
-            using var cmd3 = new MySqlCommand(stm3, con);
+            // string stm3 = "DROP VIEW june;";
+            // using var cmd3 = new MySqlCommand(stm3, con);
 
-            cmd3.ExecuteNonQuery();
+            // cmd3.ExecuteNonQuery();
 
-            string stm4 = "DROP VIEW july;";
-            using var cmd4 = new MySqlCommand(stm4, con);
+            // string stm4 = "DROP VIEW july;";
+            // using var cmd4 = new MySqlCommand(stm4, con);
 
-            cmd4.ExecuteNonQuery();
+            // cmd4.ExecuteNonQuery();
 
-            string stm8 = "DROP VIEW aug;";
-            using var cmd8 = new MySqlCommand(stm8, con);
+            // string stm8 = "DROP VIEW aug;";
+            // using var cmd8 = new MySqlCommand(stm8, con);
 
-            cmd8.ExecuteNonQuery();
+            // cmd8.ExecuteNonQuery();
 
-            string stm9 = "DROP VIEW sep;";
-            using var cmd9 = new MySqlCommand(stm9, con);
+            // string stm9 = "DROP VIEW sep;";
+            // using var cmd9 = new MySqlCommand(stm9, con);
 
-            cmd9.ExecuteNonQuery();
+            // cmd9.ExecuteNonQuery();
 
-            string stm10 = "DROP VIEW octo;";
-            using var cmd10 = new MySqlCommand(stm10, con);
+            // string stm10 = "DROP VIEW octo;";
+            // using var cmd10 = new MySqlCommand(stm10, con);
 
-            cmd10.ExecuteNonQuery();
+            // cmd10.ExecuteNonQuery();
 
-            string stm11 = "DROP VIEW nov;";
-            using var cmd11 = new MySqlCommand(stm11, con);
+            // string stm11 = "DROP VIEW nov;";
+            // using var cmd11 = new MySqlCommand(stm11, con);
 
-            cmd11.ExecuteNonQuery();
+            // cmd11.ExecuteNonQuery();
 
-            string stm12 = "DROP VIEW decem;";
-            using var cmd12 = new MySqlCommand(stm12, con);
+            // string stm12 = "DROP VIEW decem;";
+            // using var cmd12 = new MySqlCommand(stm12, con);
 
-            cmd12.ExecuteNonQuery();
+            // cmd12.ExecuteNonQuery();
 
             string stm13 = "CREATE VIEW jan AS SELECT COUNT(OrderID) as January FROM orderevent WHERE MONTH(orderdate) = 01;";
             using var cmd13 = new MySqlCommand(stm13, con);
@@ -174,13 +174,21 @@ namespace ttcapi.Reports
             using var cmd36 = new MySqlCommand(stm36, con);
             cmd36.ExecuteNonQuery();
             
-            using MySqlDataReader rdr = cmd.ExecuteReader();
+            using MySqlDataReader rdr = cmd25.ExecuteReader();
 
-            while(rdr.Read())
+            List<string> monthly=new List<string>();
+            while (rdr.Read())
             {
-                CateringEvent temp = new CateringEvent(){OrderID = rdr.GetInt32(0)};
-                monthly.Add(temp);
+                monthly.Add(rdr[0].ToString());
+                //strValue=myreader["email"].ToString();
+                //strValue=myreader.GetString(0);
             }
+            con.Close();
+            // while(rdr1.Read())
+            // {
+            //     CateringEvent temp = new CateringEvent(){OrderID = rdr1.GetInt32(1), orderPlaced = rdr1.GetDateTime(2), orderDate = rdr1.GetDateTime(3), fulfilledStatus = rdr1.GetBoolean(4), orderEventMethod = rdr1.GetInt32(5), orderDescription = rdr1.GetString(6)};
+            //     cartTotals.Add(temp);
+            // }
 
             return monthly;
         }

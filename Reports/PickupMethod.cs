@@ -10,9 +10,9 @@ namespace ttcapi.Reports
 {
     public class PickupMethod
     {
-        public List<CateringEvent> PickupMethodReport()
+        public List<string> PickupMethodReport()
         {
-            List<CateringEvent> pickupEvents = new List<CateringEvent>(); //orderevent is name of table
+            // List<CateringEvent> pickupEvents = new List<CateringEvent>(); //orderevent is name of table
 
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
@@ -53,12 +53,14 @@ namespace ttcapi.Reports
             using MySqlDataReader rdr = cmd3.ExecuteReader();
 
 
-            while(rdr.Read())
+           List<string> pickupEvents=new List<string>();
+            while (rdr.Read())
             {
-                CateringEvent temp = new CateringEvent(){orderEventMethod = rdr.GetInt32(0)};
-                pickupEvents.Add(temp);
+                pickupEvents.Add(rdr[0].ToString());
+                //strValue=myreader["email"].ToString();
+                //strValue=myreader.GetString(0);
             }
-
+            con.Close();
             // while(rdr1.Read())
             // {
             //     CateringEvent temp = new CateringEvent(){OrderID = rdr1.GetInt32(1), orderPlaced = rdr1.GetDateTime(2), orderDate = rdr1.GetDateTime(3), fulfilledStatus = rdr1.GetBoolean(4), orderEventMethod = rdr1.GetInt32(5), orderDescription = rdr1.GetString(6)};
