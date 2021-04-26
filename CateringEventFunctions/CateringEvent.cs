@@ -4,6 +4,7 @@ namespace API.CateringEventFunctions
 {
     public class CateringEvent
     {
+        public int OrderEventID {get; set;}
         public int OrderID{get; set;}
         public DateTime orderPlaced {get; set;}
         public DateTime orderDate {get; set;}

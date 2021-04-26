@@ -9,7 +9,7 @@ namespace ttcapi.CateringEventFunctions
 {
     public class putEventTotals
     {
-        public void putEventTotalsData(List<CateringEvent> totalEvents)
+        public void putEventTotalsData(CateringEvent totalEvents)
         {
             Console.WriteLine("made it to the put event totals data");
 
@@ -22,21 +22,21 @@ namespace ttcapi.CateringEventFunctions
             // maxIDfinder maxID = new maxIDfinder();
             int OrderID = maxIDfinder.find();
 
-            foreach(CateringEvent item in totalEvents)
-            {
+            // foreach(CateringEvent item in totalEvents)
+            // {
 
                 string stm = "INSERT INTO orderevent(OrderID, orderPlaced, orderDate, fulfilledStatus, orderEventMethod, orderDescription) VALUES(@OrderID, @orderPlaced, @orderDate, @fulfilledStatus, @orderEventMethod, @orderDescription)";
                 using var cmd = new MySqlCommand(stm, con);
 
                 cmd.Parameters.AddWithValue("@OrderID", OrderID);
-                cmd.Parameters.AddWithValue("@orderPlaced", item.orderPlaced);
-                cmd.Parameters.AddWithValue("@orderDate", item.orderDate);
-                cmd.Parameters.AddWithValue("@fulfilledStatus", item.fulfilledStatus);
-                cmd.Parameters.AddWithValue("@orderEventMethod", item.orderEventMethod);
-                cmd.Parameters.AddWithValue("@orderDescription", item.orderDescription);
+                cmd.Parameters.AddWithValue("@orderPlaced", totalEvents.orderPlaced);
+                cmd.Parameters.AddWithValue("@orderDate", totalEvents.orderDate);
+                cmd.Parameters.AddWithValue("@fulfilledStatus", totalEvents.fulfilledStatus);
+                cmd.Parameters.AddWithValue("@orderEventMethod", totalEvents.orderEventMethod);
+                cmd.Parameters.AddWithValue("@orderDescription",  totalEvents.orderDescription);
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
-            }
+            // }
         }
     }
 }
