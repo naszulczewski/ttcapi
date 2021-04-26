@@ -22,9 +22,9 @@ namespace ttcapi.CateringEventFunctions
             // maxIDfinder maxID = new maxIDfinder();
             int OrderID = maxIDfinder.find();
 
-            Boolean fulfilledStatus = false;
+            // Boolean fulfilledStatus = false;
 
-            DateTime orderPlaced = DateTime.Now;
+            // DateTime orderPlaced = DateTime.Now;
 
             // foreach(CateringEvent item in totalEvents)
             // {
@@ -33,9 +33,9 @@ namespace ttcapi.CateringEventFunctions
                 using var cmd = new MySqlCommand(stm, con);
 
                 cmd.Parameters.AddWithValue("@OrderID", OrderID);
-                cmd.Parameters.AddWithValue("@orderPlaced", orderPlaced);
+                cmd.Parameters.AddWithValue("@orderPlaced", totalEvents.orderPlaced); //added totalevents
                 cmd.Parameters.AddWithValue("@orderDate", totalEvents.orderDate);
-                cmd.Parameters.AddWithValue("@fulfilledStatus", fulfilledStatus);
+                cmd.Parameters.AddWithValue("@fulfilledStatus", totalEvents.fulfilledStatus); //added totalevents
                 cmd.Parameters.AddWithValue("@orderEventMethod", totalEvents.orderEventMethod);
                 cmd.Parameters.AddWithValue("@orderDescription",  totalEvents.orderDescription);
                 cmd.Prepare();
