@@ -40,7 +40,7 @@ namespace API.Controllers
         [HttpPost]
         public void Post([FromBody] CateringEvent totalEvents)
         {
-            Console.WriteLine(totalEvents);
+            Console.WriteLine("made it to the controller");
             // putEventTotals putEvent = new putEventTotals();
             // putEvent.putEventTotalsData(totalEvents);
         }
