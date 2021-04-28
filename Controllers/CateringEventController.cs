@@ -41,7 +41,7 @@ namespace API.Controllers
         public void Post([FromBody] CateringEvent totalEvents)
         {
             Console.WriteLine("made it to the POST controller");
-            // Console.WriteLine(totalEvents);
+            Console.WriteLine(totalEvents.ToString());
             // putEventTotals putEvent = new putEventTotals();
             // putEvent.putEventTotalsData(totalEvents);
         }

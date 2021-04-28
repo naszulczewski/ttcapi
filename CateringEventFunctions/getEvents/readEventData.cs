@@ -30,9 +30,9 @@ namespace API.CateringEventFunctions.getEvents
 
             using MySqlDataReader rdr = cmd.ExecuteReader();
 
-            while(rdr.Read())
+            while (rdr.Read())
             {
-                CateringEvent temp = new CateringEvent(){OrderID = rdr.GetInt32(0), orderPlaced = rdr.GetDateTime(1), orderDate = rdr.GetDateTime(2), fulfilledStatus = rdr.GetBoolean(3), orderEventMethod = rdr.GetInt32(4), orderDescription = rdr.GetString(5)};
+                CateringEvent temp = new CateringEvent() { OrderID = rdr.GetInt32(0), orderPlaced = rdr.GetDateTime(1), orderDate = rdr.GetDateTime(2), fulfilledStatus = rdr.GetBoolean(3), orderEventMethod = rdr.GetString(4), orderDescription = rdr.GetString(5) };
                 allCateringEvents.Add(temp);
             }
 

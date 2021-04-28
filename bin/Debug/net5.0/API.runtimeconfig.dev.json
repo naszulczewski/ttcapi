@@ -1,8 +1,9 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/Users/williambonner/.dotnet/store/|arch|/|tfm|",
-      "/Users/williambonner/.nuget/packages"
+      "C:\\Users\\jslucas\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\jslucas\\.nuget\\packages",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }
 }

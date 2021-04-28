@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using API.Cartfunctions;
 using System.Data.SQLite;
 using MySql.Data.MySqlClient;
+using System;
 
 namespace API.Cartfunctions.getCart
 {
@@ -10,6 +11,7 @@ namespace API.Cartfunctions.getCart
         public List<cart> GetAllItems()
         {
             List<cart> allItems = new List<cart>();
+            Console.WriteLine("in Get All Items");
 
             // string cs = @"URI=file:../cart.db";
             // using var con = new SQLiteConnection(cs);
@@ -26,9 +28,10 @@ namespace API.Cartfunctions.getCart
 
             using MySqlDataReader rdr = cmd.ExecuteReader();
 
-            while(rdr.Read())
+            while (rdr.Read())
             {
-                cart temp = new cart(){OrderID = rdr.GetInt32(0), itemName = rdr.GetString(1), price = rdr.GetDouble(2), quantity = rdr.GetInt32(3)};
+                Console.WriteLine("In While Loop " + rdr.GetString(1));
+                cart temp = new cart() { OrderID = rdr.GetInt32(0), itemName = rdr.GetString(1), price = rdr.GetDouble(2), quantity = rdr.GetInt32(3) };
                 allItems.Add(temp);
             }
 
