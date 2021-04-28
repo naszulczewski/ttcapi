@@ -6,8 +6,8 @@ namespace API.CateringEventFunctions
     {
         public int OrderEventID { get; set; }
         public int OrderID { get; set; }
-        public DateTime orderPlaced { get; set; }
-        public DateTime orderDate { get; set; }
+        public DateTime orderPlaced { get; set; } // turn this into a string
+        public DateTime orderDate { get; set; } // Turn this into a string
         public bool fulfilledStatus { get; set; }
         public string orderEventMethod { get; set; }
         public string orderDescription { get; set; }
