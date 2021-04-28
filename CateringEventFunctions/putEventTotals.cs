@@ -22,6 +22,8 @@ namespace ttcapi.CateringEventFunctions
             // maxIDfinder maxID = new maxIDfinder();
             int OrderID = maxIDfinder.find();
 
+            Console.WriteLine(totalEvents.orderEventMethod);
+
             // Boolean fulfilledStatus = false;
 
             // DateTime orderPlaced = DateTime.Now;
