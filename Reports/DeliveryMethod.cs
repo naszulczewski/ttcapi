@@ -26,7 +26,7 @@ namespace ttcapi.Reports
 
             cmd6.ExecuteNonQuery();
 
-            string stm1 = "CREATE VIEW delivered as SELECT count(*) as deliveredorders FROM orderevent WHERE (ordereventmethod = 0);";
+            string stm1 = "CREATE VIEW delivered as SELECT count(*) as deliveredorders FROM orderevent WHERE (ordereventmethod = 'Delivery');";
             using var cmd1 = new MySqlCommand(stm1, con);
 
             cmd1.ExecuteNonQuery();

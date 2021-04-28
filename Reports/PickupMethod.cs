@@ -29,7 +29,7 @@ namespace ttcapi.Reports
 
             cmd5.ExecuteNonQuery();
 
-            string stm = "CREATE VIEW pickedup as SELECT count(*) as pickeduporders FROM orderevent WHERE (ordereventmethod = 1);";
+            string stm = "CREATE VIEW pickedup as SELECT count(*) as pickeduporders FROM orderevent WHERE (ordereventmethod = 'Pickup');";
             using var cmd = new MySqlCommand(stm, con);
 
             cmd.ExecuteNonQuery();
