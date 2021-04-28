@@ -27,7 +27,7 @@ namespace API.CateringEventFunctions.createEvent
             cmd.ExecuteNonQuery();
 
             // cmd.CommandText = @"CREATE TABLE OrderEvent(orderID INTEGER PRIMARY KEY, orderPlaced DATETIME, orderDate DATETIME, fulfilledStatus BOOL, orderEventMethod INTEGER, orderDescription TEXT)";
-            string stm2 = @"CREATE TABLE OrderEvent(OrderEventID INTEGER PRIMARY KEY AUTO_INCREMENT, OrderID INTEGER, orderPlaced DATETIME, orderDate DATETIME, fulfilledStatus BOOL, orderEventMethod INTEGER, orderDescription TEXT, FOREIGN KEY (OrderID) REFERENCES OrderIDTable(OrderID))";
+            string stm2 = @"CREATE TABLE OrderEvent(OrderEventID INTEGER PRIMARY KEY AUTO_INCREMENT, OrderID INTEGER, orderPlaced TEXT, orderDate TEXT, fulfilledStatus BOOL, orderEventMethod INTEGER, orderDescription TEXT, FOREIGN KEY (OrderID) REFERENCES OrderIDTable(OrderID))";
             using var cmd1 = new MySqlCommand(stm2, con);
             cmd1.ExecuteNonQuery();
         }
