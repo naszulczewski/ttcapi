@@ -5,6 +5,6 @@ namespace API.CateringEventFunctions.removeEvent
 {
     public interface iPostEvent
     {
-        public void UpdateEvent(int orderID, DateTime orderPlaced, DateTime orderDate, bool fulfilledStatus, int orderEventMethod, string orderDescription);
+        public void UpdateEvent(int orderID, string orderPlaced, string orderDate, bool fulfilledStatus, string orderEventMethod, string orderDescription);
     }
 }

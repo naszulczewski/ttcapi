@@ -9,7 +9,7 @@ namespace API.CateringEventFunctions.updateEvents
 {
     public class saveEventData : iPostEvent
     {
-        public void UpdateEvent(int OrderID, DateTime orderPlaced, DateTime orderDate, bool fulfilledStatus, int orderEventMethod, string orderDescription)
+        public void UpdateEvent(int OrderID, string orderPlaced, string orderDate, bool fulfilledStatus, string orderEventMethod, string orderDescription)
         {
             // string cs = @"URI=file:../OrderEvent.db"; // make this a static class!!
             // using var con = new SQLiteConnection(cs);

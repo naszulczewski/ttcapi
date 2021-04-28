@@ -8,7 +8,7 @@ namespace API.CateringEventFunctions.addEvent
 {
     public class addEvent : iAddEvent
     {
-        public void addOrderEvent(int OrderID, DateTime orderPlaced, DateTime orderDate, bool fulfilledStatus, int orderEventMethod, string orderDescription)
+        public void addOrderEvent(int OrderID, string orderPlaced, string orderDate, bool fulfilledStatus, string orderEventMethod, string orderDescription)
         {
             // string cs = @"URI=file:../OrderEvents.db";
             // using var con = new SQLiteConnection(cs);
